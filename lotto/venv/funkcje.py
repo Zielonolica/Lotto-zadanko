@@ -36,3 +36,6 @@ def sprZakres(liczby):
     if checker > 0:
         return False
     return True
+
+def losowanie():
+    return listaLotto
