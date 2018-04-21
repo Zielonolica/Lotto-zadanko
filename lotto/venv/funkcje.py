@@ -38,4 +38,23 @@ def sprZakres(liczby):
     return True
 
 def losowanie():
-    return listaLotto
+    lotto = []
+    for i in range(6):
+        nowyElement = random.randint(1,50)
+        if i > 0 and i < 6:
+            j = i-1
+            while j >= 0:
+                if nowyElement == lotto[j]:
+                    nowyElement = random.randint(1, 50)
+                    j = i-1
+                else:
+                    j -= 1
+        lotto.append(nowyElement)
+    lotto.sort()
+    return lotto
+
+def checkWin(liczby, lotto):
+    for i in range(6):
+        if liczby[i] != lotto[i]:
+            return False
+    return True

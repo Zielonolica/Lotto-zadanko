@@ -2,7 +2,7 @@ import funkcje
 
 game = True
 
-while (True):
+while (game == True):
   otrzymaneLiczby = input("Wybierz 6 różnych liczb z zakresu od 1 do 49 oddzielając je spacjami:\n")
 
   #zamiana stringa na liste intów
@@ -25,4 +25,14 @@ while (True):
   if funkcje.sprZakres(liczby) == False:
       continue
 
-  print("wszystko ok")
+  #losowanie liczb przez komputer
+  lotto = funkcje.losowanie()
+  print("Szczęśliwe liczby to: {0}".format(lotto))
+
+  #czy takie same liczby usera i wylosowane
+  if funkcje.checkWin(liczby, lotto) == True:
+      print("Wygrana!!!")
+  else:
+      print("Przegrana :(")
+
+  game = False
