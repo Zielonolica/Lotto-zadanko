@@ -1,8 +1,6 @@
 import random
 import time
 
-random.seed(time.time())
-
 def convertIntoInt(otrzymaneLiczby):
     listaLiczbZnaki = otrzymaneLiczby.split(' ')
     liczby = []
@@ -11,17 +9,10 @@ def convertIntoInt(otrzymaneLiczby):
     liczby.sort()
     return liczby
 
-def ileLiczb(liczby):
-    n = 0
-    for i in liczby:
-        n += 1
-    return n
-
 def czyRozne(liczby):
-    for i in range(0,5):
-        for j in range(i+1,6):
-            if i != j and liczby[j] == liczby[i]:
-                return False
+    for i in range(1,6):
+        if liczby[i] == liczby[i-1]:
+            return False
     return True
 
 def sprZakres(liczby):
@@ -38,18 +29,8 @@ def sprZakres(liczby):
     return True
 
 def losowanie():
-    lotto = []
-    for i in range(6):
-        nowyElement = random.randint(1,50)
-        if i > 0 and i < 6:
-            j = i-1
-            while j >= 0:
-                if nowyElement == lotto[j]:
-                    nowyElement = random.randint(1, 50)
-                    j = i-1
-                else:
-                    j -= 1
-        lotto.append(nowyElement)
+    random.seed(time.time())
+    lotto = random.sample(range(1,50),6)
     lotto.sort()
     return lotto
 

@@ -9,10 +9,10 @@ while (game == True):
   liczby = funkcje.convertIntoInt(otrzymaneLiczby)
 
   #czy podano 6 liczb
-  if funkcje.ileLiczb(liczby) > 6:
+  if len(liczby) > 6:
     print("Podano za dużo liczb!")
     continue
-  elif funkcje.ileLiczb(liczby) < 6:
+  elif len(liczby) < 6:
     print("Podano za mało liczb!")
     continue
 
